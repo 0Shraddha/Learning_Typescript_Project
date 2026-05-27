@@ -3,44 +3,68 @@ import { PatternProps } from "./Patterns.types";
 import './styles.css';
 
 export const PatternsForm = () => {
-
     const [pattern, setPattern] = useState<PatternProps>({
-        title : '',
-        patterns : '',
-        description : '',
-        price : 0,
-    })
-
-    const handleChange = (event : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = event.target;
-        setPattern((prevPattern) => ({
-          ...prevPattern,
-          [name]: value,
-        }));
-    }
-
+      title: "",
+      patterns: "",
+      description: "",
+      price: 0,
+    });
+  
+    const handleChange = (
+      event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+      const { name, value } = event.target;
+  
+      setPattern((prev) => ({
+        ...prev,
+        [name]: name === "price" ? Number(value) : value,
+      }));
+    };
+  
     const handleSubmit = () => {
-        localStorage.setItem('pattern', JSON.stringify(pattern));
-
-        console.log("saved:" , pattern);
-    }
-
+      localStorage.setItem("pattern", JSON.stringify(pattern));
+      console.log("saved:", pattern);
+    };
+  
     return (
-        <>
-        <h4>Create a new Pattern</h4>
-
-        <input type="text" name="title" id="id_title" value={pattern.title} placeholder="Title" onChange={handleChange}/>
-        <br/>
-        <textarea name="patterns" id="id_patterns" value={pattern.patterns} placeholder="Patterns" onChange={handleChange}></textarea>
-        <br/>
-
-        <textarea name="description" id="id_description" value={pattern.description} placeholder="Description (Optional)" onChange={handleChange}></textarea>
-        <br/>
-
-        <input type="number" name="price" id="id_number" value={pattern.price} placeholder="Price" onChange={handleChange}/>
-        <br/>
-
-        <button type="button" onClick={handleSubmit}>Create</button>
-        </>
-    )
-}
+      <div className="pattern-form-wrapper">
+        <input
+          className="input-field"
+          type="text"
+          name="title"
+          value={pattern.title}
+          placeholder="Title"
+          onChange={handleChange}
+        />
+  
+        <textarea
+          className="textarea-field"
+          name="patterns"
+          value={pattern.patterns}
+          placeholder="Patterns"
+          onChange={handleChange}
+        />
+  
+        <textarea
+          className="textarea-field"
+          name="description"
+          value={pattern.description}
+          placeholder="Description (Optional)"
+          onChange={handleChange}
+        />
+  
+        <input
+          className="input-field"
+          type="number"
+          name="price"
+          value={pattern.price}
+          placeholder="Price"
+          onChange={handleChange}
+        />
+  
+        <button className="submit-btn" type="button" onClick={handleSubmit}>
+          Create Pattern
+        </button>
+      </div>
+    );
+  };

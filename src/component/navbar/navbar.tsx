@@ -1,3 +1,4 @@
+import { Upload } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
@@ -6,7 +7,8 @@ export default function Navbar() {
       <NavLink
         to="/"
         style={({ isActive }) => ({
-          color: isActive ? "red" : "black",
+          ...styles.link,
+          ...(isActive ? styles.activeLink : {}),
         })}
       >
         Home
@@ -15,7 +17,8 @@ export default function Navbar() {
       <NavLink
         to="/pattern-detail"
         style={({ isActive }) => ({
-          color: isActive ? "red" : "black",
+          ...styles.link,
+          ...(isActive ? styles.activeLink : {}),
         })}
       >
         Pattern List
@@ -24,10 +27,11 @@ export default function Navbar() {
       <NavLink
         to="/upload-pattern"
         style={({ isActive }) => ({
-          color: isActive ? "red" : "black",
+          ...styles.link,
+          ...(isActive ? styles.activeLink : {}),
         })}
       >
-        Contact
+       <Upload  size={16} style={{marginRight: '2px'}}/>  Upload Pattern
       </NavLink>
     </nav>
   );
@@ -36,7 +40,35 @@ export default function Navbar() {
 const styles = {
   nav: {
     display: "flex",
-    gap: "20px",
-    padding: "20px",
+    alignItems: "center",
+    justifyContent: "center",
+
+    gap: "18px",
+    padding: "12px 30px",
+    margin: "0px 40px",
+
+    position: "sticky" as const,
+    zIndex: 100,
+  },
+
+  link: {
+    textDecoration: "none",
+    color: "#5f4b4b",
+
+    fontSize: "15px",
+    fontWeight: 500,
+
+    padding: "8px 18px",
+    borderRadius: "10px",
+
+    transition: "all 0.3s ease",
+
+    letterSpacing: "0.5px",
+  },
+
+  activeLink: {
+    background: "palevioletred",
+    color: "white",
+    transform: "translateY(-1px)",
   },
 };

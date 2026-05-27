@@ -1,22 +1,84 @@
-
-input, textarea{
-    border-radius: 8px ;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    width: 50%;
-    min-width: 50%;
-    margin: 5px;
-
-}
-
-button{
-    background-color: palevioletred;
-    border-radius: 8px;
-    padding: 5px 10px;
-    color: white;
+/* Wrapper card */
+.pattern-form-wrapper {
+    padding: 10px 28px;
+    margin: 0px auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+   
+  }
+  
+  /* Title */
+  .form-title {
+    margin-bottom: 20px;
+    color: palevioletred;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Inputs */
+  .input-field,
+  .textarea-field {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  
+    border-radius: 10px;
+    border: 1px solid rgba(219, 112, 147, 0.25);
+  
+    background: #ffffff;
+  
+    outline: none;
+  
+    font-size: 14px;
+  
+    transition: all 0.25s ease;
+  
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* textarea height */
+  .textarea-field {
+    min-height: 110px;
+    resize: none;
+  }
+  
+  /* focus effect */
+  .input-field:focus,
+  .textarea-field:focus {
+    border-color: palevioletred;
+    background: #fff;
+  }
+  
+  /* Button */
+  .submit-btn {
+    width: 40%;
+    padding: 12px 16px;
+  
     border: none;
-    font-size: 16px;
+    border-radius: 10px;
+  
+    background: palevioletred;
+    color: white;
+  
+    font-size: 15px;
+    font-weight: 600;
+  
     cursor: pointer;
-
-}
+  
+    transition: all 0.3s ease;
+  
+  }
+  
+  /* hover */
+  .submit-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* active click */
+  .submit-btn:active {
+    transform: translateY(0px);
+    box-shadow: 0 6px 14px rgba(219, 112, 147, 0.2);
+  }
