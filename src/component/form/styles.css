@@ -5,9 +5,17 @@
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-  
-   
+    align-items: start;
+  }
+
+  .hook-materils{
+    align-items: start;
+  }
+
+  .hook-wool-wrapper, .media-wrapper{
+    display: flex;
+    width: 100%;
+    gap: 12px;
   }
   
   /* Title */
@@ -25,8 +33,8 @@
     padding: 12px 14px;
     margin-bottom: 14px;
   
-    border-radius: 10px;
-    border: 1px solid rgba(219, 112, 147, 0.25);
+    border-radius: 8px;
+    border: 1px solid rgba(219, 112, 148, 0.168);
   
     background: #ffffff;
   
@@ -36,7 +44,6 @@
   
     transition: all 0.25s ease;
   
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
   }
   
   /* textarea height */
@@ -82,3 +89,236 @@
     transform: translateY(0px);
     box-shadow: 0 6px 14px rgba(219, 112, 147, 0.2);
   }
+
+
+  /* Write patterns css */
+  .actions{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.rows-wrapper,
+.info-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.step-card{
+    width: 100%;
+
+    border-radius: 18px;
+    padding: 6px 16px 0px;
+    border: 1px solid rgba(219,112,147,0.2);
+
+    box-shadow:
+    0 4px 10px rgba(0,0,0,0.03);
+
+    transition: 0.3s ease;
+}
+
+.step-card:hover{
+    transform: translateY(-2px);
+}
+
+.step-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+.step-number{
+    font-size: 12px;
+    font-weight: 700;
+    color: palevioletred;
+    text-wrap: nowrap;
+    margin-right: 8px;
+
+    letter-spacing: 0.5px;
+}
+
+.delete-btn{
+    border: none;
+    background: rgba(219,112,147,0.12);
+    color: palevioletred;
+
+    padding: 8px 12px;
+    margin-left: 8px;
+
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.delete-btn:hover{
+    background: palevioletred;
+    color: white;
+}
+
+.input-field{
+    margin-bottom: 0;
+}
+
+.actions .submit-btn{
+    width: auto;
+    padding: 10px 18px;
+}
+
+.info-container{
+    width: 100%;
+    padding: 20px;
+    border: 1px dashed rgba(84, 79, 81, 0.2);
+    border-width: 2px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+
+/* Upload Media Styles */
+.upload-container{
+  border: 1px dashed rgba(219,112,147,0.2);
+  border-width: 2px;
+  border-radius: 12px;
+  
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.upload-container:hover{
+  border-color: palevioletred;
+  background: #fff7f8;
+}
+
+.upload-dragging {
+    border-color: palevioletred;
+    background: #fff0f4;
+    transform: scale(1.01);
+}
+
+.upload-success {
+    border-color: #b5d080;
+    background: #f8fdf4;
+}
+
+
+
+/* Display patterns */
+.display-pattern-wrapper {
+    width: 40%;
+    margin-right: 20px;
+}
+
+/* Video Section */
+
+.video video {
+    width: 60%;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Pattern Header */
+.pattern {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.pattern img {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    object-fit: cover;
+    border: 2px solid palevioletred;
+}
+
+.pattern-title {
+    color: palevioletred;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    text-transform: capitalize;
+}
+
+/* Description */
+.pattern-description {
+    background: white;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 16px;
+    line-height: 1.7;
+    color: #555;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Pattern Steps */
+.pattern-row {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.pattern-row:hover {
+    transform: translateY(-3px);
+}
+
+.pattern-row h3 {
+    margin: 0 0 0.5rem;
+    color: palevioletred;
+    font-size: 1.1rem;
+}
+
+.pattern-row p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Badges */
+.pattern-badge {
+    display: inline-block;
+    background: palevioletred;
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    margin-right: 0.75rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 10px rgba(219, 112, 147, 0.25);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+   
+
+    .pattern {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pattern img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .pattern-title {
+        font-size: 1.6rem;
+    }
+}

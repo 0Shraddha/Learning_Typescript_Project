@@ -5,16 +5,16 @@ type WindowContainerProps = {
 
 export const WindowContainer = ({
   children,
-  pageName = "Dream Page",
+  pageName = "",
 }: WindowContainerProps) => {
   return (
     <div
       style={{
-        minHeight: "85vh",
+        height: "85vh",
         margin: "0 40px",
         borderRadius: "22px",
-        overflow: "hidden",
-
+        overflowY: "scroll",
+        overflowX: "hidden",
         background: "rgba(255, 255, 255, 0.76)",
 
         /* dreamy vintage background */

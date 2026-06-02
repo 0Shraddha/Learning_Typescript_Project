@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import { PatternProps } from "./Patterns.types";
+import { PatternProps, PatternStep } from "./Patterns.types";
 import './styles.css';
+import { WritePatterns } from "./WritePatterns";
+import Label from "./Label";
+import { UploadMedia } from "./UploadMedia";
+
+const buildPatternsString = (steps: PatternStep[]) =>
+  steps
+    .map((step, index) => `${index + 1}. ${step.type === "row" ? "Row" : "Info"}: ${step.text}`)
+    .join("\n");
 
 export const PatternsForm = () => {
     const [pattern, setPattern] = useState<PatternProps>({
@@ -8,6 +16,12 @@ export const PatternsForm = () => {
       patterns: "",
       description: "",
       price: 0,
+      hook: "",
+      woolType: "",
+      woolColors: "",
+      imageUrl: "",
+      videoUrl: "",
+      steps: [],
     });
   
     const handleChange = (
@@ -20,14 +34,58 @@ export const PatternsForm = () => {
         [name]: name === "price" ? Number(value) : value,
       }));
     };
+
+    const handleMediaUpload = (file: File, field: "imageUrl" | "videoUrl") => {
+      const url = URL.createObjectURL(file);
+      setPattern((prev) => ({
+        ...prev,
+        [field]: url,
+      }));
+    };
+
+    const addStep = (type: "row" | "info") => {
+      setPattern((prev) => ({
+        ...prev,
+        steps: [
+          ...prev.steps,
+          {
+            id: crypto.randomUUID(),
+            type,
+            text: "",
+          },
+        ],
+      }));
+    };
+
+    const updateStep = (id: string, text: string) => {
+      setPattern((prev) => ({
+        ...prev,
+        steps: prev.steps.map((step) =>
+          step.id === id ? { ...step, text } : step
+        ),
+      }));
+    };
+
+    const deleteStep = (id: string) => {
+      setPattern((prev) => ({
+        ...prev,
+        steps: prev.steps.filter((step) => step.id !== id),
+      }));
+    };
   
     const handleSubmit = () => {
-      localStorage.setItem("pattern", JSON.stringify(pattern));
-      console.log("saved:", pattern);
+      const payload = {
+        ...pattern,
+        patterns: buildPatternsString(pattern.steps),
+      };
+      localStorage.setItem("pattern", JSON.stringify(payload));
+      console.log("saved:", payload);
     };
   
     return (
       <div className="pattern-form-wrapper">
+
+        <Label name="Title" isRequired={true} />
         <input
           className="input-field"
           type="text"
@@ -36,29 +94,82 @@ export const PatternsForm = () => {
           placeholder="Title"
           onChange={handleChange}
         />
-  
-        <textarea
-          className="textarea-field"
-          name="patterns"
-          value={pattern.patterns}
-          placeholder="Patterns"
-          onChange={handleChange}
+
+        <br />
+
+        <div className="materials-wrapper">
+          <Label name="Materials" isRequired={true} />
+          <div className="hook-wool-wrapper">
+            <input
+              className="input-field"
+              type="text"
+              name="hook"
+              value={pattern.hook}
+              placeholder="Hook Size (mm)"
+              onChange={handleChange}
+            />
+
+            <input
+              className="input-field"
+              type="text"
+              name="woolType"
+              value={pattern.woolType}
+              placeholder="Wool Type"
+              onChange={handleChange}
+            />
+
+            <input
+              className="input-field"
+              type="text"
+              name="woolColors"
+              value={pattern.woolColors}
+              placeholder="Wool Colors"
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <br />
+
+        <div className="materials-wrapper" style={{ display : "none" }}>
+          <Label name="Price" isRequired={false} />
+          <input
+            className="input-field"
+            type="number"
+            name="price"
+            value={pattern.price}
+            placeholder="Price"
+            onChange={handleChange}
+          />
+        </div>
+
+        <br />
+
+        <div className="media-container">
+          <Label name="Media" isRequired={true} />
+          <div className="media-wrapper">
+            <UploadMedia onUpload={(file) => handleMediaUpload(file, "imageUrl")} />
+            <UploadMedia isVideo={true} onUpload={(file) => handleMediaUpload(file, "videoUrl")} />
+          </div>
+        </div>
+
+        <br />
+
+        <Label name="Patterns & Instructions" isRequired={true} />
+        <WritePatterns
+          items={pattern.steps}
+          onAddItem={addStep}
+          onUpdateItem={updateStep}
+          onDeleteItem={deleteStep}
         />
+
+        <br />
   
         <textarea
           className="textarea-field"
           name="description"
           value={pattern.description}
           placeholder="Description (Optional)"
-          onChange={handleChange}
-        />
-  
-        <input
-          className="input-field"
-          type="number"
-          name="price"
-          value={pattern.price}
-          placeholder="Price"
           onChange={handleChange}
         />
   
