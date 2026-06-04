@@ -1,12 +1,13 @@
 import './App.css';
-import { CardComponent } from './component/card/CardComponent';
+import { CardComponent } from './components/card/CardComponent';
 import { Routes, Route} from 'react-router-dom';
-import Navbar from './component/navbar/navbar';
+import Navbar from './components/navbar/navbar';
 
 import {Home} from './pages/Home'
-import {PatternDetail} from './pages/PatternDetail';
+import {PatternList} from './pages/PatternList';
 import {UploadPattern} from './pages/UploadPattern';
-import { WindowContainer } from './component/window/WindowContainer';
+import { WindowContainer } from './components/window/WindowContainer';
+import { PatternDetail } from './pages/PatternDetail';
 
 
 function App() {
@@ -21,10 +22,10 @@ function App() {
 <WindowContainer>
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/pattern-detail' element={<PatternDetail />} />
+      <Route path='/pattern-list' element={<PatternList />} />
       <Route path='/upload-pattern' element={<UploadPattern />} />
+      <Route path='/pattern-detail' element={<PatternDetail />} />
     </Routes>
-
 </WindowContainer>
 
 

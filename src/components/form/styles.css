@@ -216,14 +216,17 @@
 
 /* Display patterns */
 .display-pattern-wrapper {
-    width: 40%;
+    width: 100%;
     margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 /* Video Section */
 
 .video video {
-    width: 60%;
+    width: 100%;
     border-radius: 20px;
     object-fit: cover;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -275,10 +278,6 @@
     transition: transform 0.3s ease;
 }
 
-.pattern-row:hover {
-    transform: translateY(-3px);
-}
-
 .pattern-row h3 {
     margin: 0 0 0.5rem;
     color: palevioletred;
@@ -294,14 +293,13 @@
 /* Badges */
 .pattern-badge {
     display: inline-block;
-    background: palevioletred;
+    background: rgb(216, 112, 147);
     color: white;
     padding: 0.6rem 1rem;
     border-radius: 999px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     margin-right: 0.75rem;
     margin-top: 0.5rem;
-    box-shadow: 0 4px 10px rgba(219, 112, 147, 0.25);
 }
 
 /* Mobile */

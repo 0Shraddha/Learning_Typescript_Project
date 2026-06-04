@@ -15,7 +15,7 @@ export default function Navbar() {
       </NavLink>
 
       <NavLink
-        to="/pattern-detail"
+        to="/pattern-list"
         style={({ isActive }) => ({
           ...styles.link,
           ...(isActive ? styles.activeLink : {}),

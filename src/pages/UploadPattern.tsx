@@ -1,6 +1,5 @@
-import { Info } from "../component/about/Info"
-import { PatternsForm } from "../component/form/PatternsForm"
-import { DisplayPattern } from "../component/patterns/DisplayPattern"
+import { Info } from "../components/about/Info"
+import { PatternsForm } from "../components/form/PatternsForm"
 
 export const UploadPattern = () => {
     return (
@@ -9,7 +8,6 @@ export const UploadPattern = () => {
         <div className="flex-container">
             <PatternsForm />
 
-            <DisplayPattern />
         </div>
         </>
     )
