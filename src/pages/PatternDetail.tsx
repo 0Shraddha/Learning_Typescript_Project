@@ -1,6 +1,6 @@
-import { Info } from "../components/about/Info"
-import { CardComponent } from "../components/card/CardComponent"
-import { DisplayPattern } from "../components/patterns/DisplayPattern"
+import { Info } from "../CustomComponent/about/Info"
+import { CardComponent } from "../CustomComponent/card/CardComponent"
+import { DisplayPattern } from "../CustomComponent/patterns/DisplayPattern"
 
 export const PatternDetail = () => {
     return (

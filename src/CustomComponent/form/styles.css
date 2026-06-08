@@ -1,11 +1,10 @@
 /* Wrapper card */
 .pattern-form-wrapper {
-    padding: 10px 28px;
-    margin: 0px auto;
-    max-width: 500px;
+    padding: 10px 24px;
     display: flex;
     flex-direction: column;
     align-items: start;
+    width: 100%;
   }
 
   .hook-materils{
@@ -188,9 +187,9 @@
   border-radius: 12px;
   
   padding: 20px;
-  width: 100%;
+  
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 12px;
   cursor: pointer;

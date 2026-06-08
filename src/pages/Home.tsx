@@ -1,4 +1,4 @@
-import { Info } from "../components/about/Info";
+import { Info } from "../CustomComponent/about/Info";
 import bunny from "../bunny.jpg";
 
 export const Home = () => {

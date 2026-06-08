@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import { Info } from "../components/about/Info"
-import { CardComponent } from "../components/card/CardComponent"
+import { Info } from "../CustomComponent/about/Info"
+import { CardComponent } from "../CustomComponent/card/CardComponent"
 
 export const PatternList = () => {
     return (

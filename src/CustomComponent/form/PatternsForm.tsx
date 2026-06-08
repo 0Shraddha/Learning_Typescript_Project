@@ -4,6 +4,7 @@ import './styles.css';
 import { WritePatterns } from "./WritePatterns";
 import Label from "./Label";
 import { UploadMedia } from "./UploadMedia";
+import { PatternVideoSeries } from "./Video/PatternVideoSeries";
 
 const buildPatternsString = (steps: PatternStep[]) =>
   steps
@@ -85,7 +86,9 @@ export const PatternsForm = () => {
     return (
       <div className="pattern-form-wrapper">
 
-        <Label name="Title" isRequired={true} />
+<div className="flex gap-6">
+  <div className="col">
+    <Label name="Title" isRequired={true} />
         <input
           className="input-field"
           type="text"
@@ -129,8 +132,21 @@ export const PatternsForm = () => {
           </div>
         </div>
 
-        <br />
+  </div>
+  <div className="col">
+        <div className="media-container">
+          <Label name="Media" isRequired={true} />
+          <div className="media-wrapper">
 
+            <UploadMedia onUpload={(file) => handleMediaUpload(file, "imageUrl")} />
+            <PatternVideoSeries handleMediaUpload={handleMediaUpload} />
+
+          </div>
+        </div>
+  </div>
+</div>
+
+        
         <div className="materials-wrapper" style={{ display : "none" }}>
           <Label name="Price" isRequired={false} />
           <input
@@ -143,17 +159,6 @@ export const PatternsForm = () => {
           />
         </div>
 
-        <br />
-
-        <div className="media-container">
-          <Label name="Media" isRequired={true} />
-          <div className="media-wrapper">
-            <UploadMedia onUpload={(file) => handleMediaUpload(file, "imageUrl")} />
-            <UploadMedia isVideo={true} onUpload={(file) => handleMediaUpload(file, "videoUrl")} />
-          </div>
-        </div>
-
-        <br />
 
         <Label name="Patterns & Instructions" isRequired={true} />
         <WritePatterns

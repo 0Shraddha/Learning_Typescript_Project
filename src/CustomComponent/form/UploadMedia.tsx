@@ -50,7 +50,7 @@ export const UploadMedia = ({isVideo = false, onUpload}: Props) => {
             <div className="icon" style={{ color: "palevioletred" }}>
                 {isVideo ? <Video /> : <Image />}
             </div>
-            <div className="text-area">
+            <div className="text-area text-center">
                 <p style={{ margin: 0, padding : 0, fontSize: "14px", fontWeight: 500 }}>
                     {isVideo ? "Tutorial Video" : "Cover Image"}
                 </p>

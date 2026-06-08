@@ -1,12 +1,12 @@
 import './App.css';
-import { CardComponent } from './components/card/CardComponent';
+import { CardComponent } from './CustomComponent/card/CardComponent';
 import { Routes, Route} from 'react-router-dom';
-import Navbar from './components/navbar/navbar';
+import Navbar from './CustomComponent/navbar/navbar';
 
 import {Home} from './pages/Home'
 import {PatternList} from './pages/PatternList';
 import {UploadPattern} from './pages/UploadPattern';
-import { WindowContainer } from './components/window/WindowContainer';
+import { WindowContainer } from './CustomComponent/window/WindowContainer';
 import { PatternDetail } from './pages/PatternDetail';
 
 
