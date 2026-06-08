@@ -33,6 +33,16 @@ export default function Navbar() {
       >
        <Upload  size={16} style={{marginRight: '2px'}}/>  Upload Pattern
       </NavLink>
+
+      <NavLink
+        to="/playground"
+        style={({ isActive }) => ({
+          ...styles.link,
+          ...(isActive ? styles.activeLink : {}),
+        })}
+      >
+        Playground
+      </NavLink>
     </nav>
   );
 }

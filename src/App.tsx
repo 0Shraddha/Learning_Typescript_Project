@@ -8,6 +8,7 @@ import {PatternList} from './pages/PatternList';
 import {UploadPattern} from './pages/UploadPattern';
 import { WindowContainer } from './components/window/WindowContainer';
 import { PatternDetail } from './pages/PatternDetail';
+import Playground from './pages/Playground';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Route path='/pattern-list' element={<PatternList />} />
       <Route path='/upload-pattern' element={<UploadPattern />} />
       <Route path='/pattern-detail' element={<PatternDetail />} />
+      <Route path='/playground' element={<Playground />} />
     </Routes>
 </WindowContainer>
 
