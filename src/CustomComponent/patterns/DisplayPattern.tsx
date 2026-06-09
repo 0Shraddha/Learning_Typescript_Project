@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Lessons } from "./Lessons";
 import { AppIcon } from "./icons";
+import patternSample from "../../assets/My_Sweet_Crochet_Project-3.png"
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
@@ -611,7 +612,7 @@ export const DisplayPattern = () => {
   };
 
   const title = pattern.title || "Crochet Pattern Tutorial";
-
+const videoUrl = "/videos/video1.mov";
   return (
     <>
       <style>{styles}</style>
@@ -640,9 +641,9 @@ export const DisplayPattern = () => {
 
             {/* VIDEO */}
             <div className="lp-video-wrap">
-              {pattern.videoUrl ? (
-                <video controls>
-                  <source src={pattern.videoUrl} type="video/mp4" />
+              {videoUrl ? (
+                <video controls muted poster="/videos/public/videos/My_Sweet_Crochet_Project-3.png">
+                  <source src={videoUrl} type="video/quicktime" />
                   Your browser does not support the video tag.
                 </video>
               ) : (

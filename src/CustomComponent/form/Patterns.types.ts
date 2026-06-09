@@ -27,6 +27,7 @@ export type VideoTutorials = {
     title: string;
     id: string;
     videoUrl: string;
+    videoType: string;
 }
 
 //VideoSeries and VideoTutorials

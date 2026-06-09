@@ -110,3 +110,64 @@ code {
     @apply font-sans;
   }
 }
+
+
+/* ── Shared button base ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  border: 1px solid transparent;
+}
+
+.btn-sm{
+  border-radius: var(--radius-md);
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  border: 1px solid transparent;
+}
+
+/* Primary — filled pvr */
+.btn-primary {
+  background: var(--pvr);
+  color: #fff;
+  border-color: var(--pvr);
+}
+
+.btn-primary:hover {
+  background: var(--pvr-dark);
+  border-color: var(--pvr-dark);
+}
+
+/* Ghost — outlined */
+.btn-ghost {
+  background: var(--aw-dark);
+  color: var(--text-muted);
+  border-color: var(--aw-border);
+}
+
+.btn-ghost:hover {
+  background: var(--pvr-light);
+  color: var(--pvr-text);
+  border-color: var(--pvr);
+}
+
+/* Danger — remove actions */
+.btn-danger {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--aw-border);
+}
+
+.btn-danger:hover {
+  background: var(--pvr-light);
+  color: var(--pvr-dark);
+  border-color: var(--pvr);
+}

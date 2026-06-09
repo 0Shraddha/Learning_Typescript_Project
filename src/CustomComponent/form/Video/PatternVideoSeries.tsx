@@ -50,9 +50,9 @@ export const PatternVideoSeries = ({handleMediaUpload} : PatternVideoSeriesProps
     </div>
       
   </DrawerTrigger>
-  <DrawerContent>
+  <DrawerContent className="bg-orange-50">
     <DrawerHeader>
-      <DrawerTitle>Upload Videos in different series</DrawerTitle>
+      <DrawerTitle>Upload Videos in different sections</DrawerTitle>
       <DrawerDescription>
 
           <SeriesAccordion />
@@ -61,12 +61,12 @@ export const PatternVideoSeries = ({handleMediaUpload} : PatternVideoSeriesProps
 
       </DrawerDescription>
     </DrawerHeader>
-    <DrawerFooter>
+    {/* <DrawerFooter>
       <Button>Submit</Button>
       <DrawerClose asChild>
         <Button variant="outline">Cancel</Button>
       </DrawerClose>
-    </DrawerFooter>
+    </DrawerFooter> */}
   </DrawerContent>
 </Drawer>
 

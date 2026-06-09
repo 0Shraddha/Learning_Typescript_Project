@@ -8,7 +8,7 @@ import {
 
 import { VideoSeries, VideoTutorials } from "../Patterns.types";
 import { Button } from "../../../components/ui/button";
-import { Trash } from "lucide-react";
+import { Plus, Trash } from "lucide-react";
 import './styles.css'
 
 type StateProps = {
@@ -84,6 +84,8 @@ export const SeriesAccordion = () => {
     Record<string, { title: string; file: File | null }>
     >({});
 
+    console.log(state.series)
+
 
     return (
 
@@ -91,11 +93,12 @@ export const SeriesAccordion = () => {
         <div className="add-series-bar">
             <input type="text" value={newSeriesTitle}
                 onChange={(e)=> setNewSeriesTitle(e.target.value)}
-                placeholder="Series Title"
+                placeholder="Section Name(Introduction/ Tutorial Section)"
                 className="border rounded p-2"
             />
 
-<Button
+<Button 
+className="btn btn-primary"
 onClick={() => {
     if (!newSeriesTitle) return;
 
@@ -111,7 +114,7 @@ onClick={() => {
 }
 }
 >
-    Add Series
+  <Plus /> Add
 
 </Button>
         </div>
@@ -120,22 +123,37 @@ onClick={() => {
         {state.series.map((series) => (
           <AccordionItem key={series.id} value={series.id} className="accordion-item">
             <AccordionTrigger className="accordion-trigger">
-              {series.title} 
-              <Button onClick={()=> dispatch({type: "REMOVE_SERIES", payload: series.id})}>Remove <Trash/> </Button>
+              <h6 className="accordion-trigger-title">
+                {series.title} 
+              </h6>
+
+              <div className="btn-sm btn-primary">
+                {series.lessons.length}
+              </div>
+
+              <Button className="btn-danger" onClick={()=> dispatch({type: "REMOVE_SERIES", payload: series.id})}> <Trash/> </Button>
             </AccordionTrigger>
 
             <AccordionContent className="accordion-content">
               {/* LESSON LIST */}
               {series.lessons.length === 0 && (
-                <p className="text-sm text-gray-500">
+                <div className="text-sm text-gray-500">
                   No lessons yet
-                </p>
+                </div>
               )}
 
               {series.lessons.map((lesson) => (
                 <div key={lesson.id} className="lesson-card">
-                  <p>{lesson.title}</p>
-                  <video src={lesson.videoUrl} controls />
+                  <video className="video" controls muted>
+                    <source src={lesson.videoUrl} type="video/mp4" />
+                    Your browser does not support this video.
+                  </video>
+                  <h6 className="accordion-trigger-title">{lesson.title}</h6>
+                  <Button className="btn-danger" onClick={() => dispatch({type: "REMOVE_LESSON", payload: {seriesId: series.id, lessonId: lesson.id}})}> <Trash /> </Button>
+
+                  
+                  
+                  
                 </div>
               ))}
 
@@ -160,6 +178,7 @@ onClick={() => {
                     {/* FILE INPUT */}
                     <input
                         type="file"
+                        accept="video/*"
                         onChange={(e) =>
                         setLessonForms((prev) => ({
                             ...prev,
@@ -174,6 +193,7 @@ onClick={() => {
 
                     {/* ADD BUTTON */}
                     <Button
+                    className="btn btn-primary"
                         onClick={() => {
                         const form = lessonForms[series.id];
 
@@ -189,6 +209,7 @@ onClick={() => {
                                 id: crypto.randomUUID(),
                                 title: form.title,
                                 videoUrl,
+                                videoType: form.file.type,
                             },
                             },
                         });
