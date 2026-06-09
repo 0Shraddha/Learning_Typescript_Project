@@ -1,37 +1,24 @@
 import {
   Drawer,
-  DrawerClose,
+  DrawerTrigger,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
+  DrawerDescription,
 } from "../../../components/ui/drawer";
-import { Video } from "lucide-react";
-import { SeriesAccordion } from "./SeriesAccordion";
+import { Volleyball } from "lucide-react";
+import RowsInfosAccordion from "./RowsInfosAccordion";
 
-interface PatternVideoSeriesProps {
-  handleMediaUpload: (
-    file: File, //params1 -- file src
-    field: "imageUrl" | "videoUrl", //params2 -- image or video?
-  ) => void; //return type void
-}
-
-export const PatternVideoSeries = ({
-  handleMediaUpload,
-}: PatternVideoSeriesProps) => {
+export const AddPatternSeries = () => {
   return (
-    <div className="postion-relative z-100">
+    <div className="position-relative z-100">
       <Drawer direction="right">
         <DrawerTrigger asChild>
           <div
             className="upload-container"
             style={{ border: "1px solid palevioletred" }}
           >
-            <div className="icon" style={{ color: "palevioletred" }}>
-              <Video />
-            </div>
+            <Volleyball style={{ color: "palevioletred" }} />
             <div className="text-area">
               <p
                 style={{
@@ -41,27 +28,23 @@ export const PatternVideoSeries = ({
                   fontWeight: 500,
                 }}
               >
-                Tutorial Video
+                ADD Patterns
               </p>
               <span style={{ fontSize: "12px", color: "gray" }}>
-                Upload a video tutorial for your pattern
+                Divide the patterns into Sections and Rows. Add infos for simple
+                fyi
               </span>
             </div>
           </div>
         </DrawerTrigger>
-        <DrawerContent className="bg-orange-50">
+
+        <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>Upload Videos in different sections</DrawerTitle>
             <DrawerDescription>
-              <SeriesAccordion />
+              <RowsInfosAccordion />
             </DrawerDescription>
           </DrawerHeader>
-          {/* <DrawerFooter>
-      <Button>Submit</Button>
-      <DrawerClose asChild>
-        <Button variant="outline">Cancel</Button>
-      </DrawerClose>
-    </DrawerFooter> */}
         </DrawerContent>
       </Drawer>
     </div>

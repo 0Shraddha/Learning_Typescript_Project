@@ -49,3 +49,18 @@ export type VideoTutorials = {
 //     ]
 //   }
 // ]
+
+
+
+//Patterns Rows and Infos
+export type PatternsSeries = {
+    title: string;
+    id: string;
+    patterns: PatternItem[];
+}
+
+export type PatternItem = {
+    id: string;
+    type: "row" | "info";
+    text: string;
+};
