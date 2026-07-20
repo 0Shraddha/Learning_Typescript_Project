@@ -38,9 +38,9 @@ export const AddPatternSeries = () => {
           </div>
         </DrawerTrigger>
 
-        <DrawerContent>
+        <DrawerContent style={{ "overflowY" : "scroll", "overflowX" : "scroll"}}>
           <DrawerHeader>
-            <DrawerTitle>Upload Videos in different sections</DrawerTitle>
+            <DrawerTitle>Create patterns (Add ROWS and INFOS)</DrawerTitle>
             <DrawerDescription>
               <RowsInfosAccordion />
             </DrawerDescription>

@@ -7,6 +7,8 @@ import { UploadMedia } from "./UploadMedia";
 import { PatternVideoSeries } from "./Video/PatternVideoSeries";
 import { AddPatternSeries } from "./Patterns/AddPatternSeries";
 import { Edit } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "../../components/ui/button";
 
 const buildPatternsString = (steps: PatternStep[]) =>
   steps
@@ -150,32 +152,37 @@ export const PatternsForm = () => {
       </div>
 
 
-      <Label name="Patterns & Instructions" isRequired={true} />
-
-    <div className="flex gap-5">
-        <AddPatternSeries />
-
-          <div
+ <div className="flex gap-4 mb-4">
+       <Label name="Patterns & Instructions" isRequired={true} />
+          <Link to='/playground'>
+          <button
                 className="upload-container"
-                style={{ background: "antiquewhite", color : 'palevioletred' }}
+                style={{ background: "antiquewhite", color : 'palevioletred', borderStyle : 'solid', padding: '8px 12px' }}
               >
-                <Edit style={{ color: "palevioletred" }} />
+                {/* <Edit style={{ color: "palevioletred" }} /> */}
                 <div className="text-area">
                   <p
                     style={{
                       margin: 0,
                       padding: 0,
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: 500,
                     }}
                   >
-                    Create Your Own Pattern
+                    CROCHET PLAYGROUND
                   </p>
-                  <span style={{ fontSize: "12px", color: "gray" }}>
-                    Pattern Playground with Grid and all the stitches
-                  </span>
+                  {/* <span style={{ fontSize: "12px", color: "white" }}>
+                    Create Your Own Pattern
+                  </span> */}
                 </div>
-          </div>
+          </button>
+        </Link>
+ </div>
+
+    <div className="flex gap-5">
+        <AddPatternSeries />
+
+
       
     </div>
 
@@ -183,16 +190,14 @@ export const PatternsForm = () => {
 
 
       <br />
-      <WritePatterns
+      {/* <WritePatterns
         items={pattern.steps}
         onAddItem={addStep}
         onUpdateItem={updateStep}
         onDeleteItem={deleteStep}
-      />
+      /> */}
 
 
-
-      <br />
 
       <textarea
         className="textarea-field"

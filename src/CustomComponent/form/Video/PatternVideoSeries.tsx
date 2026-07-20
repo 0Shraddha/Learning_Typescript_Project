@@ -49,7 +49,7 @@ export const PatternVideoSeries = ({
             </div>
           </div>
         </DrawerTrigger>
-        <DrawerContent className="bg-orange-50">
+        <DrawerContent className="bg-orange-50" style={{ "overflowY" : "scroll", "overflowX" : "scroll"}}>
           <DrawerHeader>
             <DrawerTitle>Upload Videos in different sections</DrawerTitle>
             <DrawerDescription>
