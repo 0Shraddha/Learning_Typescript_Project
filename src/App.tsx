@@ -1,14 +1,8 @@
-import './App.css';
-import { CardComponent } from './CustomComponent/card/CardComponent';
 import { Routes, Route} from 'react-router-dom';
-import Navbar from './CustomComponent/navbar/navbar';
-
-import {Home} from './pages/Home'
-import {PatternList} from './pages/PatternList';
-import {UploadPattern} from './pages/UploadPattern';
-import { WindowContainer } from './CustomComponent/window/WindowContainer';
-import { PatternDetail } from './pages/PatternDetail';
-import Playground from './pages/Playground';
+import Home from './modules/dashboard/Home';
+import { PatternList } from './modules/patterns/PatternsList/PatternList';
+import MainUploadTab from './modules/patterns/PatternsForm/MainTab';
+import Navbar from './modules/navbar/Navbar';
 
 
 function App() {
@@ -20,15 +14,15 @@ function App() {
     <Navbar />
 
 
-<WindowContainer>
+<div>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/pattern-list' element={<PatternList />} />
-      <Route path='/upload-pattern' element={<UploadPattern />} />
-      <Route path='/pattern-detail' element={<PatternDetail />} />
-      <Route path='/playground' element={<Playground />} />
+      <Route path='/upload-pattern' element={<MainUploadTab />} />
+      {/* <Route path='/pattern-detail' element={<PatternDetail />} /> */}
+      {/* <Route path='/playground' element={<Playground />} /> */}
     </Routes>
-</WindowContainer>
+</div>
 
 
 
