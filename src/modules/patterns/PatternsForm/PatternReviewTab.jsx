@@ -4,7 +4,7 @@ const PatternReviewTab = () => {
   return (
     <div>
 
-        Final review and preview
+      
       
     </div>
   )

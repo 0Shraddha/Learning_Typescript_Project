@@ -1,11 +1,11 @@
+import Header from "../../../components/ui/custom/Header"
 import PatternCards from "./PatternCards"
 
 export const PatternList = () => {
     return (
-        <>
-        THhis will contain the patterns list in card layout
-
-        <PatternCards />
-        </>
+        <div className="">
+            <Header sub="my pattern gallery" heading="Patterns Collection" />
+            <PatternCards />
+        </div>
     )
 }

@@ -1,0 +1,111 @@
+.pattern-card {
+  width: 290px;
+  background-color: #FFFDFB;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(193, 68, 14, 0.08);
+  border: 1px solid #F1E4D8;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.pattern-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(193, 68, 14, 0.14);
+}
+
+.pattern-thumb {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: #F1E4D8;
+}
+
+.pattern-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 253, 251, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #C1440E;
+  transition: transform 0.15s ease;
+}
+
+.fav-btn:hover {
+  transform: scale(1.1);
+}
+
+.difficulty-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(255, 253, 251, 0.92);
+  color: #C1440E;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* dashed "cut line" divider, like a sewing pattern edge */
+.pattern-stitch-line {
+  border-top: 2px dashed #E8D3C0;
+  margin: 0 16px;
+}
+
+.pattern-body {
+  padding: 14px 16px 16px;
+}
+
+.pattern-category {
+  font-size: 11px;
+  font-weight: 600;
+  color: #C1440E;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pattern-title {
+  margin: 4px 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #3A342C;
+  line-height: 1.35;
+}
+
+.pattern-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pattern-downloads {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  color: #8A7F70;
+}
+
+.pattern-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

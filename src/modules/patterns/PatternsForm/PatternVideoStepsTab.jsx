@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import PatternVideoSection from './PatternVideoSteps/PatternVideoSection'
-import PatternStepsSection from './PatternVideoSteps/PatternStepsSection'
+import PatternVideoSection from './PatternVideoSteps/Video/PatternVideoSection'
+import PatternStepsSection from './PatternVideoSteps/Steps/PatternStepsSection'
 import { Button } from '../../../components/ui/button'
 
 export const PatternVideoStepsTab = () => {
@@ -31,10 +31,6 @@ export const PatternVideoStepsTab = () => {
       
       
             {ActiveComponent && <ActiveComponent />}
-            
-            
-      
-      
 
       
     </div>

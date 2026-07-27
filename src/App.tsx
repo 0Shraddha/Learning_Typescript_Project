@@ -14,7 +14,7 @@ function App() {
     <Navbar />
 
 
-<div>
+<div className='mx-auto max-w-6xl px-4 py-8'>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/pattern-list' element={<PatternList />} />
