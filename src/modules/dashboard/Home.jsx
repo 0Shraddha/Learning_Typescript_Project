@@ -1,5 +1,6 @@
+import useChime from '../../Hooks/useChime'
 import Header from '../../components/ui/custom/Header'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const currentlyOnHook = {
@@ -14,6 +15,7 @@ const recentThoughts = [
 ]
 
 const Home = () => {
+
   return (
     <div className="bg-[#FBF7F2] text-[#3A342C] min-h-screen">
 

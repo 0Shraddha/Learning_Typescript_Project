@@ -1,30 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PatternDetailTab from './PatternDetailTab'
 import PatternReviewTab from './PatternReviewTab'
 import { PatternVideoStepsTab } from './PatternVideoStepsTab'
 import Header from '../../../components/ui/custom/Header'
+import Tabs from '../../../components/ui/custom/Tabs'
 
 const MainUploadTab = () => {
-  const [activeTab, setActiveTab] = useState(1)
-
   const tabs = [
     { id: 1, name: 'Detail', component: PatternDetailTab },
     { id: 2, name: 'Tutorial', component: PatternVideoStepsTab },
     { id: 3, name: 'Review & Submit', component: PatternReviewTab },
   ]
 
-  const ActiveComponent = tabs.find((tab) => tab.id === activeTab)?.component
-
   return (
-    <div className="">
+    <div>
 
   <Header 
     sub="jotting down"
     heading="A New Pattern"
     />
+    <Tabs tabs={tabs} />
 
+{/* OLD ONE */}
       {/* Tabs */}
-      <div className="mb-6 flex items-center gap-1 border-b border-[#E8D3C0]">
+      {/* <div className="mb-6 flex items-center gap-1 border-b border-[#E8D3C0]">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -41,12 +40,12 @@ const MainUploadTab = () => {
             )}
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* Content panel */}
-      <div className="rounded-2xl bg-[#FBF7F2] border border-[#E8D3C0] p-8">
+      {/* <div className="rounded-2xl bg-[#FBF7F2] border border-[#E8D3C0] p-8">
         {ActiveComponent && <ActiveComponent />}
-      </div>
+      </div> */}
     </div>
   )
 }

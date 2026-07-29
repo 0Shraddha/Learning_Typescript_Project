@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Heart, Scissors, Layers } from 'lucide-react'
 import './patternCard.css'
 import DummyPattern from './DummyPattern'
+import { Link } from 'react-router-dom'
+import useChime from '../../../Hooks/useChime'
 
 const PatternCards = ({ pattern }) => {
   const [liked, setLiked] = useState(false)
+
+  const playChime = useChime();
 
   const data = pattern || DummyPattern
 
@@ -22,13 +26,24 @@ const PatternCards = ({ pattern }) => {
 
   const { hook_size, wool_colors = [] } = materials
 
+  const handleLike = () => {
+     setLiked((prev) => {
+      const newLiked = !prev
+      if (newLiked) playChime() // only chime when liking, not un-liking
+      return newLiked
+    })
+  }
+
   return (
     <div className="pattern-card">
       <div className="pattern-thumb">
+      <Link to='/pattern-detail/1/'>
         <img src={coverImage} alt={title} />
+      </Link>
+
         <button
           className={`fav-btn ${liked ? 'liked' : ''}`}
-          onClick={() => setLiked(!liked)}
+          onClick={handleLike}
           aria-label="Save pattern"
         >
           <Heart size={16} fill={liked ? '#C1440E' : 'none'} />
@@ -39,7 +54,7 @@ const PatternCards = ({ pattern }) => {
       <div className="pattern-stitch-line" />
 
       <div className="pattern-body">
-        <h3 className="pattern-title">{title}</h3>
+        <Link to='/pattern-detail/1/'><h3 className="pattern-title">{title}</h3></Link>
         <p className="pattern-description">{description}</p>
 
         {wool_colors.length > 0 && (
